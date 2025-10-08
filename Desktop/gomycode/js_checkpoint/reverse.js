@@ -50,19 +50,62 @@ function minMax(arr){
 console.log(minMax([5, 8, 1, 10, 3]));
 
 // function to calculate the sum of elements in an array
-function sumElem(arr) {
+function sumArray(arr) {
+    let sum = 0;
+    for (let num of arr) {
+        sum += num;
+    }
+    return sum;
 
-    
 }
 
 // function to filter out elements from an array based on a given condition
+function filterArr(arr, predicate){
+   for (let el of arr) {
+        if (predicate(el)) {
+            result.push(el);
+        }
+    }
+    return result;
+}
 
 
+// 7. Factorial
+function factorial(n) {
+    if (n < 0) return null; // undefined for negative
+    let result = 1;
+    for (let i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
 
-// MATHEMATICAL FUNCTIONS
-// function to calculate the factorial of a given number
+// 8. Prime Number Check
+function isPrime(n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 === 0 || n % 3 === 0) return false;
+    for (let i = 5; i * i <= n; i += 6) {
+        if (n % i === 0 || n % (i + 2) === 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
-// function to check if a number is prime of not
+// 9. Fibonacci Sequence (generate up to a number of terms)
+function fibonacci(n) {
+    if (n <= 0) return [];
+    if (n === 1) return [0];
 
-// function to generate the fibonacci sequenece up to a given number of terms
+    let seq = [0, 1];
+    while (seq.length < n) {
+        let len = seq.length;
+        let next = seq[len - 1] + seq[len - 2];
+        seq.push(next);
+    }
+    return seq;
+}
+
+
 
